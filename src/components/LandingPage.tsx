@@ -165,7 +165,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
   };
 
   return (
-    <div className="flex flex-col h-screen text-[#eef5ec] overflow-hidden sf-pro-font bg-[#050a06] relative px-4 sm:px-6">
+    <div className="flex flex-col h-svh text-[#eef5ec] overflow-hidden sf-pro-font bg-[#050a06] relative px-4 sm:px-6">
       
       {/* Background Atmosphere */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
@@ -348,7 +348,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ========================================= */}
         <section 
           data-index={0}
-          className="snap-scroll-section hero-container px-6 sm:px-8 md:px-12 pt-20 sm:pt-24 pb-12 md:py-0 relative flex flex-col justify-center items-center text-center h-auto min-h-screen md:h-screen md:max-h-screen md:overflow-hidden shrink-0"
+          className="snap-scroll-section hero-container px-6 sm:px-8 md:px-12 pt-20 sm:pt-24 pb-12 md:py-0 relative flex flex-col justify-center items-center text-center h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden shrink-0"
         >
           {/* Subtle Silhouette Background */}
           <div className="absolute inset-x-0 bottom-0 pointer-events-none h-[40%] opacity-20 z-0">
@@ -395,7 +395,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ========================================= */}
         <section 
           data-index={1}
-          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center h-auto min-h-screen md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
+          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
           <div className="max-w-7xl mx-auto w-full space-y-2 sm:space-y-4">
             
@@ -462,7 +462,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ========================================= */}
         <section 
           data-index={2}
-          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center bg-black/10 h-auto min-h-screen md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
+          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center bg-black/10 h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
           <div className="max-w-7xl mx-auto w-full space-y-4 sm:space-y-8">
             
@@ -514,7 +514,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ========================================= */}
         <section 
           data-index={3}
-          className="snap-scroll-section px-4 sm:px-8 md:px-12 py-12 md:pt-24 md:pb-12 relative flex flex-col items-center h-auto min-h-screen md:h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
+          className="snap-scroll-section px-4 sm:px-8 md:px-12 py-12 md:pt-24 md:pb-12 relative flex flex-col items-center h-auto min-h-svh md:h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
           <div className="max-w-6xl mx-auto w-full flex flex-col h-auto md:h-[78vh] max-h-[640px] justify-start md:justify-center">
             
@@ -825,7 +825,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ========================================= */}
         <section 
           data-index={4}
-          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center h-auto min-h-screen md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
+          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
           <div className="max-w-6xl mx-auto w-full space-y-4 sm:space-y-6">
             
@@ -866,7 +866,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ========================================= */}
         <section 
           data-index={5}
-          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center h-auto min-h-screen md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
+          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
           <div className="max-w-5xl mx-auto w-full space-y-4">
             
@@ -918,7 +918,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             ========================================= */}
         <section 
           data-index={6}
-          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-6 md:py-0 relative flex flex-col justify-between h-auto min-h-screen md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
+          className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-6 md:py-0 relative flex flex-col justify-between h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
           {/* Main Content Middle */}
           <div className="max-w-4xl mx-auto text-center space-y-4 my-auto z-10 relative">
