@@ -247,6 +247,82 @@ body {
 .star-twinkle-2 { animation: twinkle 4.2s infinite ease-in-out 0.8s; }
 .star-twinkle-3 { animation: twinkle 5.8s infinite ease-in-out 2.2s; }
 
+/* Cinematic Transition Utilities */
+.cinematic-transition {
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  filter: blur(10px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.section-reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-item {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.smooth-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.glass-hover {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+  transform: scale(1.02);
+}
+
+/* Parallax Background Movement */
+.parallax-bg {
+  will-change: transform;
+}
+
+/* Twinkle refined */
+@keyframes twinkle-cinematic {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.star-twinkle-cinematic {
+  animation: twinkle-cinematic 4s infinite ease-in-out;
+}
+
 /* Custom Font Headings with Barlow Condensed */
 .heading-caps {
   font-family: var(--font-heading);

@@ -177,57 +177,68 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         />
 
         {/* Custom Subtle Interactive Glow follow cursor */}
-        <div 
-          className="absolute w-[400px] h-[400px] rounded-full opacity-[0.06] bg-emerald-500 blur-[130px] transition-transform duration-300 ease-out pointer-events-none hidden md:block"
-          style={{
-            transform: `translate(${mousePos.x - 200}px, ${mousePos.y - 200}px)`
+        <motion.div 
+          className="absolute w-[400px] h-[400px] rounded-full opacity-[0.06] bg-emerald-500 blur-[130px] pointer-events-none hidden md:block"
+          animate={{
+            x: mousePos.x - 200,
+            y: mousePos.y - 200,
           }}
+          transition={{ type: "spring", damping: 30, stiffness: 100, mass: 0.5 }}
         />
 
         {/* Stars Layer with Custom Twinkles and Parallax Shift */}
-        <div 
-          className="absolute inset-0 opacity-40 transition-transform duration-75 ease-out"
+        <motion.div 
+          className="absolute inset-0 opacity-40 parallax-bg"
           style={{
-            transform: `translateY(${scrollTop * 0.12}px)`
+            y: scrollTop * 0.12
           }}
         >
-          <div className="absolute top-[8%] left-[5%] w-[1.5px] h-[1.5px] bg-white rounded-full star-twinkle-1" />
-          <div className="absolute top-[16%] left-[24%] w-[2px] h-[2px] bg-amber-400 rounded-full star-twinkle-2" />
-          <div className="absolute top-[5%] left-[48%] w-[1.5px] h-[1.5px] bg-white rounded-full star-twinkle-3" />
-          <div className="absolute top-[21%] left-[68%] w-[2.5px] h-[2.5px] bg-sky-200 rounded-full star-twinkle-1" />
-          <div className="absolute top-[12%] left-[82%] w-[2px] h-[2px] bg-white rounded-full star-twinkle-2" />
-          <div className="absolute top-[35%] left-[12%] w-[1.5px] h-[1.5px] bg-yellow-100 rounded-full star-twinkle-3" />
-          <div className="absolute top-[28%] left-[55%] w-[2px] h-[2px] bg-white rounded-full star-twinkle-1" />
-          <div className="absolute top-[42%] left-[76%] w-[2px] h-[2px] bg-white rounded-full star-twinkle-2" />
-          <div className="absolute top-[32%] left-[92%] w-[1.5px] h-[1.5px] bg-emerald-300 rounded-full star-twinkle-3" />
-          <div className="absolute top-[55%] left-[30%] w-[2px] h-[2px] bg-white rounded-full star-twinkle-1" />
-          <div className="absolute top-[48%] left-[88%] w-[2px] h-[2px] bg-amber-300 rounded-full star-twinkle-2" />
-        </div>
+          <div className="absolute top-[8%] left-[5%] w-[1.5px] h-[1.5px] bg-white rounded-full star-twinkle-cinematic" />
+          <div className="absolute top-[16%] left-[24%] w-[2px] h-[2px] bg-amber-400 rounded-full star-twinkle-cinematic [animation-delay:0.8s]" />
+          <div className="absolute top-[5%] left-[48%] w-[1.5px] h-[1.5px] bg-white rounded-full star-twinkle-cinematic [animation-delay:2.2s]" />
+          <div className="absolute top-[21%] left-[68%] w-[2.5px] h-[2.5px] bg-sky-200 rounded-full star-twinkle-cinematic [animation-delay:1.5s]" />
+          <div className="absolute top-[12%] left-[82%] w-[2px] h-[2px] bg-white rounded-full star-twinkle-cinematic [animation-delay:3s]" />
+          <div className="absolute top-[35%] left-[12%] w-[1.5px] h-[1.5px] bg-yellow-100 rounded-full star-twinkle-cinematic [animation-delay:0.4s]" />
+          <div className="absolute top-[28%] left-[55%] w-[2px] h-[2px] bg-white rounded-full star-twinkle-cinematic [animation-delay:1.9s]" />
+          <div className="absolute top-[42%] left-[76%] w-[2px] h-[2px] bg-white rounded-full star-twinkle-cinematic [animation-delay:2.7s]" />
+          <div className="absolute top-[32%] left-[92%] w-[1.5px] h-[1.5px] bg-emerald-300 rounded-full star-twinkle-cinematic [animation-delay:3.5s]" />
+          <div className="absolute top-[55%] left-[30%] w-[2px] h-[2px] bg-white rounded-full star-twinkle-cinematic [animation-delay:4.2s]" />
+          <div className="absolute top-[48%] left-[88%] w-[2px] h-[2px] bg-amber-300 rounded-full star-twinkle-cinematic [animation-delay:1.2s]" />
+        </motion.div>
 
         {/* Fine Noise Texture simulated via linear opacity overlays */}
         <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
         {/* Subtle animated aurora glow with Parallax Shift */}
-        <div 
-          className="absolute top-[-10%] left-[20%] w-[60vw] h-[35vh] rounded-full blur-[120px] opacity-15 pointer-events-none animate-pulse transition-transform duration-75 ease-out"
+        <motion.div 
+          className="absolute top-[-10%] left-[20%] w-[60vw] h-[35vh] rounded-full blur-[120px] opacity-15 pointer-events-none transition-transform"
           style={{
             background: "radial-gradient(circle, #0e7490 0%, #0369a1 40%, transparent 80%)",
-            animationDuration: "14s",
-            transform: `translateY(${scrollTop * 0.18}px)`
+            y: scrollTop * 0.18
           }}
+          animate={{ opacity: [0.1, 0.15, 0.1] }}
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div 
-          className="absolute top-[-15%] right-[15%] w-[50vw] h-[30vh] rounded-full blur-[100px] opacity-10 pointer-events-none animate-pulse transition-transform duration-75 ease-out"
+        <motion.div 
+          className="absolute top-[-15%] right-[15%] w-[50vw] h-[30vh] rounded-full blur-[100px] opacity-10 pointer-events-none transition-transform"
           style={{
             background: "radial-gradient(circle, #059669 0%, #047857 50%, transparent 80%)",
-            animationDuration: "18s",
-            transform: `translateY(${scrollTop * 0.15}px)`
+            y: scrollTop * 0.15
           }}
+          animate={{ opacity: [0.08, 0.12, 0.08] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
 
       {/* FLOATING TRANSPARENT GLASS BRAND NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-6 liquid-glass-navbar">
+      <motion.nav 
+        className={`fixed top-0 left-0 right-0 z-50 py-3 sm:py-4 px-6 transition-all duration-500 ${
+          scrollTop > 50 ? "liquid-glass-navbar py-2 backdrop-blur-3xl" : "bg-transparent backdrop-blur-none"
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ type: "spring", damping: 25, stiffness: 120 }}
+      >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Logo & Slogan */}
@@ -300,7 +311,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           </div>
 
         </div>
-      </nav>
+      </motion.nav>
 
       {/* FLOAT SIDE DOT INDICATOR NAVIGATOR */}
       <div className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-4">
@@ -357,11 +368,22 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </svg>
           </div>
 
-          <div className="max-w-4xl mx-auto w-full space-y-4 sm:space-y-6 relative z-10 sm:-mt-8">
+          <motion.div 
+            className="max-w-4xl mx-auto w-full space-y-4 sm:space-y-6 relative z-10 sm:-mt-8"
+            initial={{ opacity: 0, y: 40, filter: "blur(15px)" }}
+            whileInView={{ opacity: 1, y: 0, filter: "blur(0)" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
             <h1 className="heading-jumbo text-[2.5rem] leading-[1.05] sm:text-6xl md:text-7xl font-extrabold tracking-tight relative group">
-              <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-emerald-100 via-emerald-400 to-emerald-900 drop-shadow-[0_0_20px_rgba(16,185,129,0.3)] filter contrast-125">
+              <motion.span 
+                className="relative z-10 text-transparent bg-clip-text bg-gradient-to-b from-emerald-100 via-emerald-400 to-emerald-900 drop-shadow-[0_0_20px_rgba(16,185,129,0.3)] filter contrast-125 block"
+                initial={{ scale: 0.95 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              >
                 Rental Perlengkapan Outdoor
-              </span>
+              </motion.span>
               {/* Glossy Overlay for Liquid Glass Effect */}
               <span className="absolute inset-0 z-20 text-transparent bg-clip-text bg-gradient-to-tr from-transparent via-white/40 to-transparent drop-shadow-sm mix-blend-overlay pointer-events-none" aria-hidden="true">
                 Rental Perlengkapan Outdoor
@@ -371,23 +393,33 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               </span>
             </h1>
 
-            <p className="text-sm sm:text-lg text-[#8ca38a] max-w-xl mx-auto leading-relaxed px-4 sm:px-0">
+            <motion.p 
+              className="text-sm sm:text-lg text-[#8ca38a] max-w-xl mx-auto leading-relaxed px-4 sm:px-0 font-light"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 1 }}
+            >
               Sewa tenda, carrier, sleeping bag, dan perlengkapan outdoor lainnya dalam satu sistem rental yang rapi, praktis, dan mudah digunakan.
-            </p>
+            </motion.p>
 
-            <div className="pt-2">
+            <motion.div 
+              className="pt-2"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.6, duration: 0.8, ease: "backOut" }}
+            >
               <button
                 onClick={() => {
                   setAuthTab("register");
                   setPage("login_screen");
                 }}
-                className="liquid-glass-button bg-white/5 text-white font-black px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl border border-white/20 text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 hover:bg-white/10 backdrop-blur-xl shadow-2xl hover:shadow-emerald-500/10 flex items-center gap-2 mx-auto"
+                className="liquid-glass-button bg-white/5 text-white font-black px-8 py-3.5 sm:px-10 sm:py-4 rounded-2xl border border-emerald-500/20 text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 hover:bg-emerald-500 hover:text-black hover:border-emerald-400 backdrop-blur-xl shadow-2xl hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] flex items-center gap-2 mx-auto"
               >
                 Mulai Booking
-                <LucideIcon name="ChevronRight" size={16} className="text-emerald-400" />
+                <LucideIcon name="ChevronRight" size={16} className="" />
               </button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
 
         {/* =========================================
@@ -400,15 +432,26 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           <div className="max-w-7xl mx-auto w-full space-y-2 sm:space-y-4">
             
             {/* Minimal Header */}
-            <div className="text-left space-y-0.5">
+            <motion.div 
+              className="text-left space-y-0.5"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <span className="text-[9px] font-black uppercase text-emerald-400 tracking-widest">
                 ARSITEKTUR OPERASIONAL
               </span>
               <h2 className="heading-jumbo text-xl sm:text-4xl text-white font-extrabold tracking-wide uppercase">
                 EMPAT PILAR INFRASTRUKTUR SISTEM
               </h2>
-              <div className="w-10 h-0.5 bg-emerald-500 rounded-full" />
-            </div>
+              <motion.div 
+                className="w-10 h-0.5 bg-emerald-500 rounded-full" 
+                initial={{ width: 0 }}
+                whileInView={{ width: 40 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              />
+            </motion.div>
 
             {/* 2x2 Clean Modern Grid Cards */}
             <div className="grid grid-cols-2 gap-2 sm:gap-4">
@@ -438,19 +481,24 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   color: "from-amber-950/40 to-orange-950/20"
                 }
               ].map((fitur, idx) => (
-                <div 
+                <motion.div 
                   key={idx}
                   className="liquid-glass-card p-3 flex flex-col justify-start h-auto min-h-[120px] group relative overflow-hidden w-full"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 * idx }}
+                  whileHover={{ y: -8, transition: { duration: 0.3 } }}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${fitur.color} opacity-20 pointer-events-none`} />
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-400/20 shadow-md mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-400/20 shadow-md mb-2 group-hover:bg-emerald-500 group-hover:text-black transition-colors duration-500">
                     <LucideIcon name={fitur.icon} size={16} />
                   </div>
                   <div className="space-y-0.5 relative z-10">
                     <h3 className="text-white text-[10px] font-black uppercase tracking-wider">{fitur.title}</h3>
                     <p className="text-[9px] text-[#8ca38a] leading-tight font-light">{fitur.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -464,17 +512,35 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           data-index={2}
           className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center bg-black/10 h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
-          <div className="max-w-7xl mx-auto w-full space-y-4 sm:space-y-8">
+          <motion.div 
+            className="max-w-7xl mx-auto w-full space-y-4 sm:space-y-8"
+            initial={{ opacity: 0, scale: 0.95, filter: "blur(8px)" }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0)" }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
             
             {/* Section Heading */}
             <div className="text-center space-y-1">
-              <span className="text-[9px] font-black uppercase text-emerald-400 tracking-widest">
+              <motion.span 
+                className="text-[9px] font-black uppercase text-emerald-400 tracking-widest block"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
                 TRANSPARANSI PROSES SEGMENTASI
-              </span>
+              </motion.span>
               <h2 className="heading-jumbo text-2xl sm:text-4xl text-white font-extrabold tracking-wide uppercase">
                 ALUR PERJALANAN LOGISTIK RENTAL
               </h2>
-              <div className="w-10 h-0.5 bg-emerald-500 mx-auto rounded-full" />
+              <motion.div 
+                className="w-10 h-0.5 bg-emerald-500 mx-auto rounded-full" 
+                initial={{ width: 0 }}
+                whileInView={{ width: 40 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5, duration: 1 }}
+              />
             </div>
 
             {/* Horizontal Timeline Flow without messy arrows */}
@@ -486,9 +552,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 { step: "04", name: "Serah Terima", details: "Cek barang & kelengkapan saat serah terima.", icon: "Tent" },
                 { step: "05", name: "Pengembalian", details: "Sterilisasi sanitasi & retur jaminan.", icon: "RotateCcw" },
               ].map((step, idx) => (
-                <div 
+                <motion.div 
                   key={idx}
-                  className="liquid-glass p-3 rounded-lg relative space-y-1.5 border border-white/5 bg-white/2 hover:border-emerald-500/25 transition-all duration-300 flex flex-col h-auto min-h-[110px]"
+                  className="liquid-glass p-3 rounded-lg relative space-y-1.5 border border-white/5 bg-white/2 glass-hover flex flex-col h-auto min-h-[110px]"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.2 + (idx * 0.1) }}
                 >
                   <div className="flex justify-between items-center">
                     <span className="text-[8px] font-bold text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 px-2 py-0.5 rounded-full">
@@ -502,11 +572,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     <h4 className="text-white font-bold text-[10px] uppercase tracking-wider">{step.name}</h4>
                     <p className="text-[9px] text-[#8ca38a] mt-0.5 leading-tight font-light">{step.details}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-          </div>
+          </motion.div>
         </section>
 
         {/* =========================================
@@ -516,13 +586,25 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           data-index={3}
           className="snap-scroll-section px-4 sm:px-8 md:px-12 py-12 md:pt-24 md:pb-12 relative flex flex-col items-center h-auto min-h-svh md:h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
-          <div className="max-w-6xl mx-auto w-full flex flex-col h-auto md:h-[78vh] max-h-[640px] justify-start md:justify-center">
+          <motion.div 
+            className="max-w-6xl mx-auto w-full flex flex-col h-auto md:h-[78vh] max-h-[640px] justify-start md:justify-center"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
             
             {/* Layout Box with Tabs */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center flex-1 min-h-0 overflow-hidden py-4">
               
               {/* Left Column: Heading + Tabs */}
-              <div className="lg:col-span-5 flex flex-col space-y-5 lg:space-y-10">
+              <motion.div 
+                className="lg:col-span-5 flex flex-col space-y-5 lg:space-y-10"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
                 <div className="text-left space-y-2">
                   <h2 className="heading-jumbo text-2xl sm:text-3xl lg:text-4xl text-white font-extrabold tracking-wide uppercase">
                     PUSAT SIMULASI
@@ -538,27 +620,37 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     { id: "pricing", label: "Bundle Recommendation", icon: "Layers" },
                     { id: "maintenance", label: "Damage Assessment", icon: "Sliders" },
                     { id: "conflict", label: "Digital Agreement", icon: "FileSignature" }
-                  ].map((tab) => (
-                    <button
+                  ].map((tab, idx) => (
+                    <motion.button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id as any)}
                       className={`w-full text-left p-2 sm:p-2.5 rounded-xl border transition-all text-neutral-200 outline-none flex flex-col sm:flex-row items-center sm:items-start gap-2 ${
                         activeTab === tab.id
-                          ? "bg-emerald-500/10 border-emerald-500/35 text-white shadow-[0_0_15px_rgba(16,185,129,0.1)]"
+                          ? "bg-emerald-500/10 border-emerald-500/35 text-white shadow-[0_0_20px_rgba(16,185,129,0.15)] scale-[1.02]"
                           : "bg-white/3 border-white/5 hover:bg-white/5 text-[#8ca38a]"
                       }`}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + (idx * 0.1) }}
                     >
                       <div className={activeTab === tab.id ? "text-emerald-400" : "text-[#8ca38a]"}>
                         <LucideIcon name={tab.icon} size={14} />
                       </div>
                       <span className="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-center sm:text-left">{tab.label}</span>
-                    </button>
+                    </motion.button>
                   ))}
                 </div>
-              </div>
+              </motion.div>
 
               {/* Tab Display Panel Right */}
-              <div className="lg:col-span-7 bg-white/[0.02] border border-white/5 rounded-3xl p-5 md:p-6 flex flex-col relative shadow-2xl overflow-y-auto h-full w-full no-scrollbar max-h-[500px] lg:max-h-full">
+              <motion.div 
+                className="lg:col-span-7 bg-white/[0.02] border border-white/5 rounded-3xl p-5 md:p-6 flex flex-col relative shadow-2xl overflow-y-auto h-full w-full no-scrollbar max-h-[500px] lg:max-h-full"
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.9 }}
+              >
                 
                 {activeTab === "booking" && (
                   <div className="space-y-1.5">
@@ -771,7 +863,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                       <span className="text-[8.5px] uppercase font-black tracking-widest text-[#8ca38a]">SANKSI & SYARAT</span>
                       <h4 className="text-white font-bold text-[11px] uppercase">Digital Agreement Generator</h4>
                       <p className="text-[9px] text-[#8ca38a] font-light">Sistem otomasi surat perjanjian sewa resmi.</p>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                       
                       {/* Compact Agreement Document */}
                       <div className="bg-[#040805] border border-white/5 p-2 rounded-xl text-[8.5px] font-mono leading-tight space-y-1 h-30 sm:h-36 md:h-40 overflow-y-auto scrollbar-none text-stone-300">
@@ -812,12 +905,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                           )}
                         </div>
                       </div>
-                    </div>  </div>
+                    </div>
                   </div>
                 )}
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </section>
 
         {/* =========================================
@@ -827,16 +920,32 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           data-index={4}
           className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
-          <div className="max-w-6xl mx-auto w-full space-y-4 sm:space-y-6">
+          <motion.div 
+            className="max-w-6xl mx-auto w-full space-y-4 sm:space-y-6"
+            initial={{ opacity: 0, scale: 0.96, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, scale: 1, filter: "blur(0)" }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             
             <div className="text-center space-y-1">
-              <span className="text-[9px] font-black uppercase text-emerald-400 tracking-widest">
+              <motion.span 
+                className="text-[9px] font-black uppercase text-emerald-400 tracking-widest block"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
                 GARANSI DISIPLIN SISTEM
-              </span>
+              </motion.span>
               <h2 className="heading-jumbo text-xl sm:text-4xl text-white font-extrabold tracking-wide uppercase">
                 EMPAT GARANSI STANDAR BASECAMP
               </h2>
-              <div className="w-10 h-0.5 bg-emerald-500 mx-auto mt-1 rounded-full" />
+              <motion.div 
+                className="w-10 h-0.5 bg-emerald-500 mx-auto mt-1 rounded-full" 
+                initial={{ width: 0 }}
+                whileInView={{ width: 40 }}
+                transition={{ delay: 0.5, duration: 0.7 }}
+              />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 text-left">
@@ -846,19 +955,27 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 { title: "Histori Rental Lengkap", desc: "Arsip detail transparan.", icon: "FileClock" },
                 { title: "Monitoring Stok Kritis", desc: "Indikator dinamis.", icon: "ShieldAlert" },
               ].map((b, idx) => (
-                <div key={idx} className="liquid-glass-card p-2 flex flex-col gap-1 h-auto min-h-[80px]">
-                  <div className="w-6 h-6 rounded-md bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-400/20">
+                <motion.div 
+                  key={idx}
+                  className="liquid-glass-card p-2 flex flex-col gap-1 h-auto min-h-[80px]"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + (idx * 0.1) }}
+                  whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                >
+                  <div className="w-6 h-6 rounded-md bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-400/20 group-hover:bg-emerald-500 group-hover:text-black">
                     <LucideIcon name={b.icon} size={12} />
                   </div>
                   <div>
                     <h4 className="text-white font-extrabold text-[9px] uppercase tracking-wider">{b.title}</h4>
                     <p className="text-[8px] text-[#8ca38a] mt-0.5 leading-tight font-light">{b.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-          </div>
+          </motion.div>
         </section>
 
         {/* =========================================
@@ -868,23 +985,39 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           data-index={5}
           className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-16 md:py-0 relative flex flex-col justify-center h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
-          <div className="max-w-5xl mx-auto w-full space-y-4">
+          <motion.div 
+            className="max-w-5xl mx-auto w-full space-y-4"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          >
             
             <div className="text-left space-y-0.5">
-              <span className="text-[9px] font-black uppercase text-emerald-400 tracking-widest">
+              <span className="text-[9px] font-black uppercase text-emerald-400 tracking-widest block">
                 BUKTI NYATA OPERASIONAL
               </span>
               <h2 className="heading-jumbo text-xl sm:text-4xl text-white font-extrabold tracking-wide uppercase">
                 ULASAN MITRA LOKAL
               </h2>
-              <div className="w-10 h-0.5 bg-emerald-500 rounded-full" />
+              <motion.div 
+                className="w-10 h-0.5 bg-emerald-500 rounded-full" 
+                initial={{ width: 0 }}
+                whileInView={{ width: 40 }}
+                transition={{ delay: 0.4 }}
+              />
             </div>
 
             {/* Testimonial Quote Panel */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-white/[0.02] border border-white/5 p-4 sm:p-6 rounded-2xl relative overflow-hidden">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center bg-white/[0.02] border border-white/5 p-4 sm:p-6 rounded-2xl relative overflow-hidden glass-hover">
               <div className="absolute top-0 right-0 w-24 h-24 rounded-full bg-emerald-500/5 blur-3xl pointer-events-none" />
               
-              <div className="md:col-span-8 space-y-2">
+              <motion.div 
+                className="md:col-span-8 space-y-2"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
                 <blockquote className="text-[11px] sm:text-sm italic font-light text-stone-200 leading-relaxed shadow-none">
                   "Semenjak basecamp kami mendigitalisasi stok dengan OutRent, tidak ada lagi kekacauan pesanan. Data jaminan terdata aman, pelanggan senang, operasional jauh lebih rapi."
                 </blockquote>
@@ -892,7 +1025,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   <h4 className="text-[10px] font-black uppercase tracking-wider text-white">Gede Mandra</h4>
                   <p className="text-[9px] text-[#8ca38a] uppercase mt-0.5 font-bold">Pemilik Basecamp Sembalun</p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Statistics Showcase Block */}
               <div className="md:col-span-4 grid grid-cols-2 gap-2 border-t md:border-t-0 md:border-l border-white/5 pt-4 md:pt-0 md:pl-4 text-center">
@@ -902,15 +1035,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   { val: "30m", label: "Verifikasi" },
                   { val: "Zero", label: "Bentrok" },
                 ].map((stat, i) => (
-                  <div key={i} className="p-2 bg-white/2 rounded-lg">
+                  <motion.div 
+                    key={i} 
+                    className="p-2 bg-white/2 rounded-lg"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + (i * 0.1) }}
+                  >
                     <span className="block text-sm font-black text-emerald-400">{stat.val}</span>
                     <span className="block text-[8px] uppercase tracking-wider text-[#8ca38a] font-bold mt-0.5">{stat.label}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
-          </div>
+          </motion.div>
         </section>
 
         {/* =========================================
@@ -921,11 +1060,22 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           className="snap-scroll-section px-4 sm:px-8 md:px-12 pt-24 pb-6 md:py-0 relative flex flex-col justify-between h-auto min-h-svh md:h-screen md:max-h-screen md:overflow-hidden scroll-mt-12 md:scroll-mt-0"
         >
           {/* Main Content Middle */}
-          <div className="max-w-4xl mx-auto text-center space-y-4 my-auto z-10 relative">
+          <motion.div 
+            className="max-w-4xl mx-auto text-center space-y-4 my-auto z-10 relative"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
             
-            <div className="w-10 h-10 bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 rounded-xl flex items-center justify-center mx-auto shadow-md">
+            <motion.div 
+              className="w-10 h-10 bg-emerald-500/10 border border-emerald-400/20 text-emerald-400 rounded-xl flex items-center justify-center mx-auto shadow-md smooth-float"
+              initial={{ rotate: -10 }}
+              animate={{ rotate: 10 }}
+              transition={{ repeat: Infinity, duration: 4, repeatType: "mirror", ease: "easeInOut" }}
+            >
               <LucideIcon name="ShieldAlert" size={20} />
-            </div>
+            </motion.div>
 
             <h2 className="heading-jumbo text-2xl sm:text-5xl text-white font-extrabold uppercase leading-tight">
               Mulai Digitalisasi<br />
@@ -936,7 +1086,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
               Gabung komunitas kemping Sembalun hari ini. Dapatkan sistem andal yang nyaman, aman, dan tangguh.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
               <button 
                 onClick={() => {
                   setAuthTab("login");
@@ -956,7 +1106,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                 Daftar Pelanggan
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Calm Camping Night Atmosphere Campfire Box at the Base */}
           <div className="w-full max-w-7xl mx-auto border-t border-white/5 pt-6 pb-2.5 flex flex-col md:flex-row justify-between items-center z-10 relative px-6 text-center text-[#8ca38a] text-[10.5px] font-sans">
@@ -964,11 +1114,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             {/* Campfire Animation At Very bottom */}
             <div className="relative md:absolute md:bottom-[44px] md:left-1/2 md:-translate-x-1/2 flex flex-col items-center select-none pointer-events-none mb-1 md:mb-0 order-first md:order-none">
               {/* Soft Fire Bloom Light */}
-              <div 
+              <motion.div 
                 className="w-[110px] h-[110px] rounded-full blur-[25px] opacity-50 absolute bottom-[-15px]"
                 style={{
                   background: "radial-gradient(circle, #f59e0b 0%, #ea580c 40%, transparent 80%)"
                 }}
+                animate={{ scale: [1, 1.1, 1], opacity: [0.4, 0.6, 0.4] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
               />
               {/* Flame Component with sparks */}
               <div className="w-6 h-8 bg-gradient-to-t from-red-600 via-amber-500 to-yellow-300 rounded-b-xl rounded-t-3xl blur-[0.5px] flame-anim relative bottom-[8px] z-10">
