@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800;900&family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif, ui-sans-serif, system-ui;
+  --font-heading: "Barlow Condensed", sans-serif;
+}
+
+:root {
+  --bg-primary: #050a06;
+  --bg-secondary: #0a130b;
+  --bg-tertiary: #111f13;
+  --accent-glow: #3b82f6; /* Futuristic electric blue glow */
+  --accent-gold: #f59e0b; /* Sunset amber camping light */
+  --accent-forest: #10b981; /* High-end emerald canopy */
+  --text-main: #eef5ec;
+  --text-muted: #8ca38a;
+  --border-light: rgba(255, 255, 255, 0.06);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", sans-serif;
+  overflow-x: hidden !important;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* Scroll snap container properties */
+.snap-scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 768px) {
+  .snap-scroll-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+  }
+}
+
+.snap-scroll-section {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+@media (min-width: 768px) {
+  .snap-scroll-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    overflow: hidden;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* iOS 26 Liquid Glass UI Panels */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.1) inset,
+    0 10px 30px -10px rgba(0, 0, 0, 0.5),
+    0 0 1px 1px rgba(255, 255, 255, 0.02);
+}
+
+.liquid-glass-navbar {
+  background: rgba(5, 10, 6, 0.45);
+  backdrop-filter: blur(24px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+}
+
+.liquid-glass-card {
+  background: rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  box-shadow: 
+    0 4px 24px -1px rgba(0, 0, 0, 0.45),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.04);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-card:hover {
+  background: rgba(255, 255, 255, 0.065);
+  border-color: rgba(16, 185, 129, 0.3);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    0 15px 40px -5px rgba(0, 0, 0, 0.55),
+    0 0 20px 0 rgba(16, 185, 129, 0.12),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.liquid-glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 
+    0 2px 10px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 
+    0 10px 20px -5px rgba(0, 0, 0, 0.3),
+    0 0 15px 0 rgba(16, 185, 129, 0.15),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+}
+
+.glass-panel {
+  background: rgba(10, 19, 11, 0.65);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card-glow {
+  background: rgba(11, 23, 13, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-glow::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.04), transparent 50%);
+  pointer-events: none;
+}
+
+.glass-card-glow:hover {
+  transform: translateY(-4px);
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.08);
+}
+
+/* Neon Glows */
+.border-neon-green {
+  border-color: rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.05);
+}
+
+.border-neon-blue {
+  border-color: rgba(59, 130, 246, 0.25);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.05);
+}
+
+.border-neon-gold {
+  border-color: rgba(245, 158, 11, 0.25);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.05);
+}
+
+/* Campfire Flame Wave Animation */
+@keyframes flame-pulse {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.61));
+  }
+  50% {
+    transform: scale(1.06) translateY(-3px);
+    filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.85));
+  }
+}
+
+.flame-anim {
+  animation: flame-pulse 2.2s infinite ease-in-out;
+}
+
+/* Campfire Rising Spark Particles */
+@keyframes spark-rise-1 {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.8; }
+  100% { transform: translateY(-44px) translateX(-6px) scale(0.3); opacity: 0; }
+}
+@keyframes spark-rise-2 {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.9; }
+  100% { transform: translateY(-56px) translateX(8px) scale(0.2); opacity: 0; }
+}
+@keyframes spark-rise-3 {
+  0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(-38px) translateX(-3px) scale(0.4); opacity: 0; }
+}
+
+.spark-particle-1 { animation: spark-rise-1 2.2s infinite linear; }
+.spark-particle-2 { animation: spark-rise-2 2.8s infinite linear 0.4s; }
+.spark-particle-3 { animation: spark-rise-3 2s infinite linear 0.9s; }
+.spark-particle-4 { animation: spark-rise-1 2.5s infinite linear 1.4s; }
+.spark-particle-5 { animation: spark-rise-2 3s infinite linear 1.8s; }
+
+/* Fog/Mist Movement Background */
+@keyframes fog-move {
+  0% { transform: translateX(0) translateZ(0) scale(1); }
+  50% { transform: translateX(-4%) translateZ(0) scale(1.08); }
+  100% { transform: translateX(0) translateZ(0) scale(1); }
+}
+
+.fog-layer {
+  mix-blend-mode: screen;
+  animation: fog-move 32s infinite ease-in-out;
+}
+
+/* Star Twinkles */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.9; }
+}
+
+.star-twinkle-1 { animation: twinkle 3.2s infinite ease-in-out; }
+.star-twinkle-2 { animation: twinkle 4.2s infinite ease-in-out 0.8s; }
+.star-twinkle-3 { animation: twinkle 5.8s infinite ease-in-out 2.2s; }
+
+/* Custom Font Headings with Barlow Condensed */
+.heading-caps {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 800;
+}
+
+.heading-jumbo {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  font-weight: 950;
+}
+
+/* Interactive custom items transitions */
+.smooth-transition {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile responsive fixes */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.hero-container {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+  }
+}

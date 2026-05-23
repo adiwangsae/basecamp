@@ -1,0 +1,6 @@
+{
+  "name": "Sistem Manajemen Rental Outdoor",
+  "description": "Sistem manajemen operasional rental perlengkapan outdoor berbasis web yang modern dan profesional.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
