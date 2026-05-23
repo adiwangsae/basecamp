@@ -624,7 +624,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     <motion.button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id as any)}
-                      className={`w-full px-2 lg:px-4 py-1.5 sm:py-2 rounded-xl border transition-all text-neutral-200 outline-none flex flex-col items-center justify-center lg:flex-row lg:justify-start lg:items-center gap-1 sm:gap-2 h-full min-h-[54px] lg:min-h-0 ${
+                      className={`w-full px-2 lg:px-4 py-1.5 sm:py-2 rounded-xl border transition-all text-neutral-200 outline-none flex flex-col items-center justify-center lg:flex-row lg:justify-start lg:items-center gap-1 sm:gap-2 h-full min-h-[50px] lg:min-h-0 ${
                         activeTab === tab.id
                           ? "bg-emerald-500/10 border-emerald-500/35 text-white shadow-[0_0_15px_rgba(16,185,129,0.15)] scale-[1.02]"
                           : "bg-white/3 border-white/5 hover:bg-white/5 text-[#8ca38a]"
