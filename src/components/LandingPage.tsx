@@ -614,7 +614,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-col gap-2.5 flex-shrink-0">
+                <div className="grid grid-cols-2 lg:flex lg:flex-col gap-1.5 sm:gap-2 flex-shrink-0 p-1 -m-1">
                   {[
                     { id: "booking", label: "Smart Availability", icon: "CalendarRange" },
                     { id: "pricing", label: "Bundle Recommendation", icon: "Layers" },
@@ -624,7 +624,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                     <motion.button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id as any)}
-                      className={`w-full text-left p-2 sm:p-2.5 rounded-xl border transition-all text-neutral-200 outline-none flex flex-col sm:flex-row items-center sm:items-start gap-2 ${
+                      className={`w-full px-2 lg:px-4 py-1.5 sm:py-2 rounded-xl border transition-all text-neutral-200 outline-none flex flex-col items-center justify-center lg:flex-row lg:justify-start lg:items-center gap-1 sm:gap-2 h-full min-h-[54px] lg:min-h-0 ${
                         activeTab === tab.id
                           ? "bg-emerald-500/10 border-emerald-500/35 text-white shadow-[0_0_20px_rgba(16,185,129,0.15)] scale-[1.02]"
                           : "bg-white/3 border-white/5 hover:bg-white/5 text-[#8ca38a]"
@@ -635,9 +635,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({
                       transition={{ delay: 0.5 + (idx * 0.1) }}
                     >
                       <div className={activeTab === tab.id ? "text-emerald-400" : "text-[#8ca38a]"}>
-                        <LucideIcon name={tab.icon} size={14} />
+                        <LucideIcon name={tab.icon} size={14} className="mt-0.5 sm:mt-0" />
                       </div>
-                      <span className="block text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-center sm:text-left">{tab.label}</span>
+                      <span className="block text-[7.5px] sm:text-[9px] font-bold uppercase tracking-wider text-center lg:text-left leading-tight py-0.5 sm:py-0 w-full whitespace-normal break-words">{tab.label}</span>
                     </motion.button>
                   ))}
                 </div>
